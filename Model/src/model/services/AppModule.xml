@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true"
+  ComponentClass="model.services.AppModuleImpl"
+  DefClass="model.services.AppModuleDefImpl"
+  ComponentInterface="model.services.common.AppModule"
+  ClientProxyName="model.services.client.AppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="XxOdmIssueToStitchHTVO1"
+    ViewObjectName="model.view.XxOdmIssueToStitchHTVO"/>
+  <ViewUsage
+    Name="XxOdmIssueToStitchLTVO1"
+    ViewObjectName="model.view.XxOdmIssueToStitchLTVO"/>
+  <ViewUsage
+    Name="XxOdmIssueToStitchLTVO2"
+    ViewObjectName="model.view.XxOdmIssueToStitchLTVO"/>
+  <ViewUsage
+    Name="ViewObj1"
+    ViewObjectName="model.popUp.ViewObj"/>
+  <ViewLinkUsage
+    Name="XxOdmStitchingUkLink1"
+    ViewLinkObjectName="model.view.XxOdmStitchingUkLink"
+    SrcViewUsageName="model.services.AppModule.XxOdmIssueToStitchHTVO1"
+    DstViewUsageName="model.services.AppModule.XxOdmIssueToStitchLTVO2"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="setSessionValues">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="orgId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respAppl"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

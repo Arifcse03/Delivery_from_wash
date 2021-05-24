@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxOdmIssueToStitchHTVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="challenTypeLovVO1"
+    ViewObjectName="model.lov.challenTypeLovVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="challenUnitVO1"
+    ViewObjectName="model.lov.challenUnitVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ChallanType"
+    ListVOName="challenTypeLovVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ChallanType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChallanType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ChallanType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ChallanType"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Unit"
+    ListVOName="challenUnitVO1"
+    ListRangeSize="20"
+    NullValueFlag="none"
+    NullValueId="LOV_Unit_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationId"/>
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT XxOdmIssueToStitchHTEO.HEADER_ID, 
+       XxOdmIssueToStitchHTEO.CHALLAN_NO, 
+       XxOdmIssueToStitchHTEO.UNIT, 
+       XxOdmIssueToStitchHTEO.CHALLAN_TYPE, 
+       XxOdmIssueToStitchHTEO.TOT_ISSUE_QTY, 
+       XxOdmIssueToStitchHTEO.CREATION_DATE, 
+       XxOdmIssueToStitchHTEO.CREATION_BY, 
+       XxOdmIssueToStitchHTEO.UPDATE_DATE, 
+       XxOdmIssueToStitchHTEO.UPDATE_BY, 
+       XxOdmIssueToStitchHTEO.SENT_TO_ID, 
+       XxOdmIssueToStitchHTEO.FLAG, 
+       XxOdmIssueToStitchHTEO.REMARKS, 
+       XxOdmIssueToStitchHTEO.UNIT_NAME,
+       (select USER_NAME from fnd_user U where u.user_id= XxOdmIssueToStitchHTEO.CREATION_BY) Creator,
+(select USER_NAME from fnd_user U where u.user_id= XxOdmIssueToStitchHTEO.CREATION_BY) Update_by_Name,
+   case 
+        when  XxOdmIssueToStitchHTEO.FLAG=1 THEN 'Issue'
+        when  XxOdmIssueToStitchHTEO.FLAG=2 THEN 'Waiting for  Finish'
+        when  XxOdmIssueToStitchHTEO.FLAG=3 THEN 'Received from Finish'
+      end Status
+FROM XX_ODM_ISSUE_TO_STITCH_H_T XxOdmIssueToStitchHTEO]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="XxOdmIssueToStitchHTEO"
+    Entity="model.entity.XxOdmIssueToStitchHTEO"/>
+  <ViewAttribute
+    Name="HeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="ChallanNo"
+    PrecisionRule="true"
+    EntityAttrName="ChallanNo"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="CHALLAN_NO"/>
+  <ViewAttribute
+    Name="Unit"
+    PrecisionRule="true"
+    EntityAttrName="Unit"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="UNIT"
+    LOVName="LOV_Unit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChallanType"
+    PrecisionRule="true"
+    EntityAttrName="ChallanType"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="CHALLAN_TYPE"
+    LOVName="LOV_ChallanType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotIssueQty"
+    PrecisionRule="true"
+    EntityAttrName="TotIssueQty"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="TOT_ISSUE_QTY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreationBy"
+    PrecisionRule="true"
+    EntityAttrName="CreationBy"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="CREATION_BY"/>
+  <ViewAttribute
+    Name="UpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="UpdateDate"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="UPDATE_DATE"/>
+  <ViewAttribute
+    Name="UpdateBy"
+    PrecisionRule="true"
+    EntityAttrName="UpdateBy"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="UPDATE_BY"/>
+  <ViewAttribute
+    Name="SentToId"
+    PrecisionRule="true"
+    EntityAttrName="SentToId"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="SENT_TO_ID"/>
+  <ViewAttribute
+    Name="Flag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Flag"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="FLAG"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitName"
+    PrecisionRule="true"
+    EntityAttrName="UnitName"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="UNIT_NAME"/>
+  <ViewAttribute
+    Name="Creator"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CREATOR"
+    Expression="CREATOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UpdateByName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UPDATE_BY_NAME"
+    Expression="UPDATE_BY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Status"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS"
+    Expression="STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="XxOdmIssueToStitchLTVO"
+    ViewLink="model.view.XxOdmStitchingUkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="searchpgPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxOdmIssueToStitchHTVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="XxOdmIssueToStitchHTVO1Iterator"/>
+    <searchRegion Binds="XxOdmIssueToStitchHTVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxOdmIssueToStitchHTVO1Query"/>
+    <invokeAction id="setsession" Binds="setSessionValues" Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+          id="XxOdmIssueToStitchHTVO1">
+      <nodeDefinition DefName="model.view.XxOdmIssueToStitchHTVO"
+                      Name="XxOdmIssueToStitchHTVO10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="ChallanNo"/>
+          <Item Value="Unit"/>
+          <Item Value="ChallanType"/>
+          <Item Value="TotIssueQty"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreationBy"/>
+          <Item Value="UpdateDate"/>
+          <Item Value="UpdateBy"/>
+          <Item Value="SentToId"/>
+          <Item Value="Flag"/>
+          <Item Value="Creator"/>
+          <Item Value="UpdateByName"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespAppId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action IterBinding="XxOdmIssueToStitchHTVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XxOdmIssueToStitchHTVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

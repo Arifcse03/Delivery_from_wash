@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="Delivery From Wash" id="ph1">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info">
+            <af:statusIndicator id="si1"/>
+          </f:facet>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" inlineStyle="width:auto;">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                text="Create"
+                                id="cb1" action="*goto"/>
+              <af:spacer width="10" height="10" id="s1"/>
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Delete"
+                                id="cb2"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                text="Save"
+                                id="cb3"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.XxOdmIssueToStitchHTVO1.collectionModel}"
+                    var="row"
+                    rows="#{bindings.XxOdmIssueToStitchHTVO1.rangeSize}"
+                    emptyText="#{bindings.XxOdmIssueToStitchHTVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.XxOdmIssueToStitchHTVO1.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.XxOdmIssueToStitchHTVO1Query.queryDescriptor}"
+                    queryListener="#{bindings.XxOdmIssueToStitchHTVO1Query.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.XxOdmIssueToStitchHTVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.XxOdmIssueToStitchHTVO1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers="::cb1 ::cb2">
+            <af:column sortProperty="HeaderId" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.HeaderId.label}"
+                       id="c3" align="center" visible="false">
+              <af:outputText value="#{row.HeaderId}" id="ot10">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.HeaderId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="ChallanNo" filterable="true"
+                       sortable="true"
+                       headerText="Challan No"
+                       id="c9" align="center" filterFeatures="caseInsensitive">
+              <af:commandLink id="ot5" text="#{row.ChallanNo}" action="*goto"/>
+            </af:column>
+            <af:column sortProperty="Unit" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.Unit.label}"
+                       id="c10" align="center" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.Unit}" id="ot9">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.Unit.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="ChallanType" filterable="true"
+                       sortable="true"
+                       headerText="Challan Type"
+                       id="c7" align="center" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.ChallanType}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="TotIssueQty" filterable="true"
+                       sortable="true"
+                       headerText="Total Issue Qty"
+                       id="c5" align="center" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.TotIssueQty}" id="ot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.TotIssueQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CreationDate" filterable="true"
+                       sortable="true"
+                       headerText="Creation Date"
+                       id="c1" align="center" filterFeatures="caseInsensitive">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                              id="id1"/>
+              </f:facet>
+              <af:outputText value="#{row.CreationDate}" id="ot2">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.CreationDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CreationBy" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.CreationBy.label}"
+                       id="c11" align="center" visible="false">
+              <af:outputText value="#{row.CreationBy}" id="ot11">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.CreationBy.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="UpdateDate" filterable="true"
+                       sortable="true"
+                       headerText="Update Date"
+                       id="c6" align="center" filterFeatures="caseInsensitive">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.UpdateDate}" id="id2"/>
+              </f:facet>
+              <af:outputText value="#{row.UpdateDate}" id="ot3">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.UpdateDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.Creator.label}"
+                       id="c12" align="center" sortable="true"
+                       filterable="true" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.Creator}" id="ot12"/>
+            </af:column>
+            <af:column headerText="Update By"
+                       id="c13" align="center" filterFeatures="caseInsensitive"
+                       sortProperty="UpdateByName" sortable="true"
+                       filterable="true">
+              <af:outputText value="#{row.UpdateByName}" id="ot13"/>
+            </af:column>
+            <af:column headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.Status.label}"
+                       id="c14" align="center" sortable="true"
+                       filterable="true" filterFeatures="caseInsensitive"
+                       sortProperty="Status">
+              <af:outputText value="#{row.Status}" id="ot14"/>
+            </af:column>
+            <af:column sortProperty="UpdateBy" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.UpdateBy.label}"
+                       id="c4" align="center" visible="false">
+              <af:outputText value="#{row.UpdateBy}" id="ot6">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.UpdateBy.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="SentToId" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.SentToId.label}"
+                       id="c8" align="center" visible="false">
+              <af:outputText value="#{row.SentToId}" id="ot4">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.SentToId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="Flag" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.Flag.label}"
+                       id="c2" align="center" visible="false">
+              <af:outputText value="#{row.Flag}" id="ot1"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

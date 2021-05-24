@@ -1,0 +1,11 @@
+Table Name
+
+header: XX_ODM_ISSUE_TO_STITCH_H_T
+Line: XX_ODM_ISSUE_TO_STITCH_L_T
+SEQUENCE:
+
+For header: XX_ODM_ISSUE_TO_STITCH_H_S
+For line : XX_ODM_ISSUE_TO_STITCH_L_S
+
+#for line table data
+XX_WASH_PRODUCTION

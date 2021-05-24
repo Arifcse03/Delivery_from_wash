@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="editpgPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxOdmIssueToStitchLTVO2" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="XxOdmIssueToStitchLTVO2Iterator"/>
+    <searchRegion Binds="XxOdmIssueToStitchLTVO2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxOdmIssueToStitchLTVO2Query"/>
+    <iterator Binds="XxOdmIssueToStitchHTVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="XxOdmIssueToStitchHTVO1Iterator"/>
+    <iterator Binds="ViewObj1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ViewObj1Iterator"/>
+    <searchRegion Binds="ViewObj1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ViewObj1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxOdmIssueToStitchLTVO2Iterator"
+          id="XxOdmIssueToStitchLTVO2">
+      <nodeDefinition DefName="model.view.XxOdmIssueToStitchLTVO"
+                      Name="XxOdmIssueToStitchLTVO20">
+        <AttrNames>
+          <Item Value="LineId"/>
+          <Item Value="HeaderId"/>
+          <Item Value="SystemId"/>
+          <Item Value="TotProductionQty"/>
+          <Item Value="StitchSendQty"/>
+          <Item Value="Remarks"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreationBy"/>
+          <Item Value="UpdateDate"/>
+          <Item Value="UpdateBy"/>
+          <Item Value="WashType"/>
+          <Item Value="ProductionType"/>
+          <Item Value="Buyer"/>
+          <Item Value="Style"/>
+          <Item Value="Season"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false"
+                  IterBinding="XxOdmIssueToStitchHTVO1Iterator" Uses="LOV_Unit"
+                  id="Unit"/>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="ChallanNo">
+      <AttrNames>
+        <Item Value="ChallanNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                  Uses="LOV_ChallanType" id="ChallanType"/>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="TotIssueQty">
+      <AttrNames>
+        <Item Value="TotIssueQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="SentToId">
+      <AttrNames>
+        <Item Value="SentToId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator" id="Flag">
+      <AttrNames>
+        <Item Value="Flag"/>
+      </AttrNames>
+    </attributeValues>
+
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxOdmIssueToStitchLTVO2Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ViewObj1Iterator" id="ViewObj1">
+      <nodeDefinition DefName="model.popUp.ViewObj" Name="ViewObj10">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="PocId"/>
+          <Item Value="Buyer"/>
+          <Item Value="Style"/>
+          <Item Value="Season"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="ProdQty"/>
+          <Item Value="flag" Binds="flag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="ViewObj1Iterator" id="flag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="flag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="UnitName">
+      <AttrNames>
+        <Item Value="UnitName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
