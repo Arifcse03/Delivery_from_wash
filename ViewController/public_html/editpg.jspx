@@ -24,7 +24,7 @@
                           columns="#{bindings.ChallanNo.hints.displayWidth}"
                           maximumLength="#{bindings.ChallanNo.hints.precision}"
                           shortDesc="#{bindings.ChallanNo.hints.tooltip}"
-                          id="it14">
+                          id="it14" readOnly="true" autoSubmit="true">
               <f:validator binding="#{bindings.ChallanNo.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.SentToId.inputValue}"
@@ -93,7 +93,8 @@
                           columns="#{bindings.Remarks.hints.displayWidth}"
                           maximumLength="#{bindings.Remarks.hints.precision}"
                           shortDesc="#{bindings.Remarks.hints.tooltip}"
-                          id="it12">
+                          id="it12" inlineStyle="width:auto;"
+                          rows="4">
               <f:validator binding="#{bindings.Remarks.validator}"/>
             </af:inputText>
             <f:facet name="footer">
@@ -113,12 +114,12 @@
                   <af:spacer width="10" height="10" id="s3"/>
                   <af:commandButton text="Issue To Finish" id="cb5"
                                     inlineStyle="background-color:White; color:Black;"
-                                    visible="#{(bindings.Flag.inputValue=='1') &amp;&amp; (sessionScope.respId=='51830') ||(sessionScope.respId=='51654') ||(sessionScope.respId=='51850')?'true':'false'}"
-                                    actionListener="#{backinbean.setFlagField}"/>
+                                    actionListener="#{backinbean.setFlagField}"
+                                    visible="#{(bindings.Flag.inputValue=='2') &amp;&amp; (sessionScope.respId=='51971')?'true':'false'}"/>
                   <af:spacer width="10" height="10" id="s4"/>
                   <af:commandButton text="Receive Form Finish" id="cb6"
                                     inlineStyle="background-color:White; color:Black;"
-                                    visible="#{(bindings.Flag.inputValue=='2') &amp;&amp; (sessionScope.respId=='51971')?'true':'false'}"
+                                    visible="#{(bindings.Flag.inputValue=='1') &amp;&amp; (sessionScope.respId=='51830') ||(sessionScope.respId=='51654') ||(sessionScope.respId=='51850')?'true':'false'}"
                                     partialSubmit="true"
                                     actionListener="#{backinbean.setFlagField}"/>
                 </af:panelGroupLayout>

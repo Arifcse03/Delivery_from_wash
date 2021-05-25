@@ -183,7 +183,9 @@ FROM XX_ODM_ISSUE_TO_STITCH_H_T XxOdmIssueToStitchHTEO]]>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="50"/>
+        <DISPLAYHEIGHT
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

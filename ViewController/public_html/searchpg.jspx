@@ -12,10 +12,10 @@
           <f:facet name="context"/>
           <f:facet name="menuBar"/>
           <f:facet name="toolbar"/>
-          <f:facet name="legend"/>
-          <f:facet name="info">
+          <f:facet name="legend">
             <af:statusIndicator id="si1"/>
           </f:facet>
+          <f:facet name="info"/>
         </af:panelHeader>
         <af:panelCollection id="pc1" inlineStyle="width:auto;">
           <f:facet name="menus"/>
