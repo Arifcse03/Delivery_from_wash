@@ -115,11 +115,11 @@
                   <af:commandButton text="Issue To Finish" id="cb5"
                                     inlineStyle="background-color:White; color:Black;"
                                     actionListener="#{backinbean.setFlagField}"
-                                    visible="#{(bindings.Flag.inputValue=='2') &amp;&amp; (sessionScope.respId=='51971')?'true':'false'}"/>
+                                    visible="#{(bindings.Flag.inputValue=='1') &amp;&amp; (sessionScope.respId=='51971')?'true':'false'}"/>
                   <af:spacer width="10" height="10" id="s4"/>
                   <af:commandButton text="Receive Form Finish" id="cb6"
                                     inlineStyle="background-color:White; color:Black;"
-                                    visible="#{(bindings.Flag.inputValue=='1') &amp;&amp; (sessionScope.respId=='51830') ||(sessionScope.respId=='51654') ||(sessionScope.respId=='51850')?'true':'false'}"
+                                    visible="#{(bindings.Flag.inputValue=='2') &amp;&amp; (sessionScope.respId=='51830') ||(sessionScope.respId=='51654') ||(sessionScope.respId=='51850')?'true':'false'}"
                                     partialSubmit="true"
                                     actionListener="#{backinbean.setFlagField}"/>
                 </af:panelGroupLayout>
