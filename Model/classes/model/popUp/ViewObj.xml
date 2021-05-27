@@ -14,7 +14,7 @@
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <SQLQuery>
-    <![CDATA[select v.SYSTEM_ID, v.PROD_QTY,h.poc_id,h.style,h.season,l.wash_name,l.color,ac.customer_Name Buyer from XX_WASH_PRODUCTION v,xx_om_poc_h_t h,xx_om_poc_l_t  l,ar_customers ac
+    <![CDATA[select  distinct v.SYSTEM_ID, v.PROD_QTY,h.poc_id,h.style,h.season,l.wash_name,l.color,ac.customer_Name Buyer from XX_WASH_PRODUCTION v,xx_om_poc_h_t h,xx_om_poc_l_t  l,ar_customers ac
 where v.SYSTEM_ID=l.SYSTEM_ID and h.poc_id=l.poc_id and h.buyer_id=ac.customer_id]]>
   </SQLQuery>
   <ViewAttribute

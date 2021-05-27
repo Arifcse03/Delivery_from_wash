@@ -15,7 +15,7 @@
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <SQLQuery>
-    <![CDATA[SELECT XxOdmIssueToStitchLTEO.LINE_ID, 
+    <![CDATA[SELECT distinct XxOdmIssueToStitchLTEO.LINE_ID, 
        XxOdmIssueToStitchLTEO.HEADER_ID, 
        XxOdmIssueToStitchLTEO.SYSTEM_ID, 
        XxOdmIssueToStitchLTEO.TOT_PRODUCTION_QTY, 
