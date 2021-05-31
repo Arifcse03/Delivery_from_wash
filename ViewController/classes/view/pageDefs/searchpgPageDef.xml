@@ -33,6 +33,7 @@
           <Item Value="Creator"/>
           <Item Value="UpdateByName"/>
           <Item Value="Status"/>
+          <Item Value="UnitName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

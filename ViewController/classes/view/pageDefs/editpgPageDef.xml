@@ -114,5 +114,23 @@
         <Item Value="UnitName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="ChallanDate">
+      <AttrNames>
+        <Item Value="ChallanDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="FromUnitId">
+      <AttrNames>
+        <Item Value="FromUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxOdmIssueToStitchHTVO1Iterator"
+                     id="DeliveryDate">
+      <AttrNames>
+        <Item Value="DeliveryDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

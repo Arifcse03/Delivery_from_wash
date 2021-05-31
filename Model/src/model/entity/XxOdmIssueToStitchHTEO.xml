@@ -222,6 +222,50 @@
       <Attr Name="_DisplaySize" Value="250"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ChallanDate"
+    ColumnName="CHALLAN_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_ODM_ISSUE_TO_STITCH_H_T">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DeliveryDate"
+    ColumnName="DELIVERY_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_ODM_ISSUE_TO_STITCH_H_T">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FromUnitId"
+    ColumnName="FROM_UNIT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_ODM_ISSUE_TO_STITCH_H_T">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReceivedDate"
+    ColumnName="RECEIVED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_ODM_ISSUE_TO_STITCH_H_T">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XxOdmIssueToStitchLTEO"
     Association="model.entity.XxOdmStitchingUkAssoc"

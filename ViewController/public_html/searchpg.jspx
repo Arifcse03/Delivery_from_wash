@@ -61,9 +61,15 @@
                        id="c9" align="center" filterFeatures="caseInsensitive">
               <af:commandLink id="ot5" text="#{row.ChallanNo}" action="*goto"/>
             </af:column>
+            <af:column headerText="Unit"
+                       id="c15" align="center" sortable="true"
+                       filterable="true" sortProperty="UnitName">
+              <af:outputText value="#{row.UnitName}" id="ot15"/>
+            </af:column>
             <af:column sortProperty="Unit" filterable="true" sortable="true"
                        headerText="#{bindings.XxOdmIssueToStitchHTVO1.hints.Unit.label}"
-                       id="c10" align="center" filterFeatures="caseInsensitive">
+                       id="c10" align="center" filterFeatures="caseInsensitive"
+                       visible="false">
               <af:outputText value="#{row.Unit}" id="ot9">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.XxOdmIssueToStitchHTVO1.hints.Unit.format}"/>

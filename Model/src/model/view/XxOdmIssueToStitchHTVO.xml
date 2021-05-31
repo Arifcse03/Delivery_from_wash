@@ -14,6 +14,12 @@
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="unit"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[343//adf.context.sessionScope.orgId]]></TransientExpression>
+  </Variable>
   <ViewAccessor
     Name="challenTypeLovVO1"
     ViewObjectName="model.lov.challenTypeLovVO"
@@ -84,8 +90,12 @@
         when  XxOdmIssueToStitchHTEO.FLAG=1 THEN 'Issue'
         when  XxOdmIssueToStitchHTEO.FLAG=2 THEN 'Waiting for  Finish'
         when  XxOdmIssueToStitchHTEO.FLAG=3 THEN 'Received from Finish'
-      end Status
-FROM XX_ODM_ISSUE_TO_STITCH_H_T XxOdmIssueToStitchHTEO]]>
+      end Status,
+ XxOdmIssueToStitchHTEO.CHALLAN_DATE,
+ XxOdmIssueToStitchHTEO.DELIVERY_DATE,
+ XxOdmIssueToStitchHTEO.FROM_UNIT_ID,
+ XxOdmIssueToStitchHTEO.RECEIVED_DATE
+FROM XX_ODM_ISSUE_TO_STITCH_H_T XxOdmIssueToStitchHTEO where  XxOdmIssueToStitchHTEO.FROM_UNIT_ID=:unit]]>
   </SQLQuery>
   <EntityUsage
     Name="XxOdmIssueToStitchHTEO"
@@ -240,6 +250,30 @@ FROM XX_ODM_ISSUE_TO_STITCH_H_T XxOdmIssueToStitchHTEO]]>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ChallanDate"
+    PrecisionRule="true"
+    EntityAttrName="ChallanDate"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="CHALLAN_DATE"/>
+  <ViewAttribute
+    Name="DeliveryDate"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryDate"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="DELIVERY_DATE"/>
+  <ViewAttribute
+    Name="FromUnitId"
+    PrecisionRule="true"
+    EntityAttrName="FromUnitId"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="FROM_UNIT_ID"/>
+  <ViewAttribute
+    Name="ReceivedDate"
+    PrecisionRule="true"
+    EntityAttrName="ReceivedDate"
+    EntityUsage="XxOdmIssueToStitchHTEO"
+    AliasName="RECEIVED_DATE"/>
   <ViewLinkAccessor
     Name="XxOdmIssueToStitchLTVO"
     ViewLink="model.view.XxOdmStitchingUkLink"

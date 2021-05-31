@@ -161,6 +161,46 @@ public class XxOdmIssueToStitchHTEOImpl extends EntityImpl {
             }
         }
         ,
+        ChallanDate {
+            public Object get(XxOdmIssueToStitchHTEOImpl obj) {
+                return obj.getChallanDate();
+            }
+
+            public void put(XxOdmIssueToStitchHTEOImpl obj, Object value) {
+                obj.setChallanDate((Date)value);
+            }
+        }
+        ,
+        DeliveryDate {
+            public Object get(XxOdmIssueToStitchHTEOImpl obj) {
+                return obj.getDeliveryDate();
+            }
+
+            public void put(XxOdmIssueToStitchHTEOImpl obj, Object value) {
+                obj.setDeliveryDate((Date)value);
+            }
+        }
+        ,
+        FromUnitId {
+            public Object get(XxOdmIssueToStitchHTEOImpl obj) {
+                return obj.getFromUnitId();
+            }
+
+            public void put(XxOdmIssueToStitchHTEOImpl obj, Object value) {
+                obj.setFromUnitId((Number)value);
+            }
+        }
+        ,
+        ReceivedDate {
+            public Object get(XxOdmIssueToStitchHTEOImpl obj) {
+                return obj.getReceivedDate();
+            }
+
+            public void put(XxOdmIssueToStitchHTEOImpl obj, Object value) {
+                obj.setReceivedDate((Date)value);
+            }
+        }
+        ,
         XxOdmIssueToStitchLTEO {
             public Object get(XxOdmIssueToStitchHTEOImpl obj) {
                 return obj.getXxOdmIssueToStitchLTEO();
@@ -213,6 +253,10 @@ public class XxOdmIssueToStitchHTEOImpl extends EntityImpl {
     public static final int FLAG = AttributesEnum.Flag.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int UNITNAME = AttributesEnum.UnitName.index();
+    public static final int CHALLANDATE = AttributesEnum.ChallanDate.index();
+    public static final int DELIVERYDATE = AttributesEnum.DeliveryDate.index();
+    public static final int FROMUNITID = AttributesEnum.FromUnitId.index();
+    public static final int RECEIVEDDATE = AttributesEnum.ReceivedDate.index();
     public static final int XXODMISSUETOSTITCHLTEO = AttributesEnum.XxOdmIssueToStitchLTEO.index();
 
     /**
@@ -442,6 +486,70 @@ public class XxOdmIssueToStitchHTEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for ChallanDate, using the alias name ChallanDate.
+     * @return the ChallanDate
+     */
+    public Date getChallanDate() {
+        return (Date)getAttributeInternal(CHALLANDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChallanDate.
+     * @param value value to set the ChallanDate
+     */
+    public void setChallanDate(Date value) {
+        setAttributeInternal(CHALLANDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for DeliveryDate, using the alias name DeliveryDate.
+     * @return the DeliveryDate
+     */
+    public Date getDeliveryDate() {
+        return (Date)getAttributeInternal(DELIVERYDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DeliveryDate.
+     * @param value value to set the DeliveryDate
+     */
+    public void setDeliveryDate(Date value) {
+        setAttributeInternal(DELIVERYDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for FromUnitId, using the alias name FromUnitId.
+     * @return the FromUnitId
+     */
+    public Number getFromUnitId() {
+        return (Number)getAttributeInternal(FROMUNITID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FromUnitId.
+     * @param value value to set the FromUnitId
+     */
+    public void setFromUnitId(Number value) {
+        setAttributeInternal(FROMUNITID, value);
+    }
+
+    /**
+     * Gets the attribute value for ReceivedDate, using the alias name ReceivedDate.
+     * @return the ReceivedDate
+     */
+    public Date getReceivedDate() {
+        return (Date)getAttributeInternal(RECEIVEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ReceivedDate.
+     * @param value value to set the ReceivedDate
+     */
+    public void setReceivedDate(Date value) {
+        setAttributeInternal(RECEIVEDDATE, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -540,8 +648,9 @@ public class XxOdmIssueToStitchHTEOImpl extends EntityImpl {
         try {
             setChallanNo(String.valueOf(getSrNoString())); 
             //setChallanNo(new oracle.jbo.domain.Number(getMasterChallanNoSer()));
-            setUnit(new oracle.jbo.domain.Number(orgId));
+           // setUnit(new oracle.jbo.domain.Number(orgId));
           //  setUnitName(unitName);
+          setFromUnitId(new oracle.jbo.domain.Number(orgId));
             setCreationDate((Date)Date.getCurrentDate());
            setCreationBy(new oracle.jbo.domain.Number(user));
 

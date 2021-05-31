@@ -27,26 +27,35 @@
                           id="it14" readOnly="true" autoSubmit="true">
               <f:validator binding="#{bindings.ChallanNo.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.SentToId.inputValue}"
-                          label="#{bindings.SentToId.hints.label}"
-                          required="#{bindings.SentToId.hints.mandatory}"
-                          columns="#{bindings.SentToId.hints.displayWidth}"
-                          maximumLength="#{bindings.SentToId.hints.precision}"
-                          shortDesc="#{bindings.SentToId.hints.tooltip}"
-                          id="it16" visible="false">
-              <f:validator binding="#{bindings.SentToId.validator}"/>
+            <af:inputText value="#{bindings.FromUnitId.inputValue}"
+                          label="From Unit Id:"
+                          required="#{bindings.FromUnitId.hints.mandatory}"
+                          columns="#{bindings.FromUnitId.hints.displayWidth}"
+                          maximumLength="#{bindings.FromUnitId.hints.precision}"
+                          shortDesc="#{bindings.FromUnitId.hints.tooltip}"
+                          id="it11" autoSubmit="true" readOnly="true">
+              <f:validator binding="#{bindings.FromUnitId.validator}"/>
               <af:convertNumber groupingUsed="false"
-                                pattern="#{bindings.SentToId.format}"/>
+                                pattern="#{bindings.FromUnitId.format}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.Flag.inputValue}"
-                          label="#{bindings.Flag.hints.label}"
-                          required="#{bindings.Flag.hints.mandatory}"
-                          columns="#{bindings.Flag.hints.displayWidth}"
-                          maximumLength="#{bindings.Flag.hints.precision}"
-                          shortDesc="#{bindings.Flag.hints.tooltip}" id="it15"
-                          visible="false">
-              <f:validator binding="#{bindings.Flag.validator}"/>
-            </af:inputText>
+            <af:inputDate value="#{bindings.ChallanDate.inputValue}"
+                          label="Challan Date:"
+                          required="#{bindings.ChallanDate.hints.mandatory}"
+                          shortDesc="#{bindings.ChallanDate.hints.tooltip}"
+                          id="id5"
+                          readOnly="#{bindings.ChallanDate.inputValue eq null ? 'false':'true'}">
+              <f:validator binding="#{bindings.ChallanDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.ChallanDate.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.DeliveryDate.inputValue}"
+                          label="Delivery Date:"
+                          required="#{bindings.DeliveryDate.hints.mandatory}"
+                          shortDesc="#{bindings.DeliveryDate.hints.tooltip}"
+                          id="id6"
+                          readOnly="#{bindings.DeliveryDate.inputValue eq null ? 'false':'true'}">
+              <f:validator binding="#{bindings.DeliveryDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.DeliveryDate.format}"/>
+            </af:inputDate>
             <af:inputComboboxListOfValues id="unitId"
                                           popupTitle="Search and Select: #{bindings.Unit.hints.label}"
                                           value="#{bindings.Unit.inputValue}"
@@ -54,7 +63,8 @@
                                           model="#{bindings.Unit.listOfValuesModel}"
                                           required="#{bindings.Unit.hints.mandatory}"
                                           columns="#{bindings.Unit.hints.displayWidth}"
-                                          shortDesc="#{bindings.Unit.hints.tooltip}">
+                                          shortDesc="#{bindings.Unit.hints.tooltip}"
+                                          readOnly="#{bindings.Unit.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.Unit.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.Unit.format}"/>
@@ -71,7 +81,8 @@
                                           model="#{bindings.ChallanType.listOfValuesModel}"
                                           required="#{bindings.ChallanType.hints.mandatory}"
                                           columns="#{bindings.ChallanType.hints.displayWidth}"
-                                          shortDesc="#{bindings.ChallanType.hints.tooltip}">
+                                          shortDesc="#{bindings.ChallanType.hints.tooltip}"
+                                          readOnly="#{bindings.ChallanType.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.ChallanType.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.ChallanType.suggestedItems}"/>
             </af:inputComboboxListOfValues>
@@ -96,6 +107,26 @@
                           id="it12" inlineStyle="width:auto;"
                           rows="4">
               <f:validator binding="#{bindings.Remarks.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Flag.inputValue}"
+                          label="#{bindings.Flag.hints.label}"
+                          required="#{bindings.Flag.hints.mandatory}"
+                          columns="#{bindings.Flag.hints.displayWidth}"
+                          maximumLength="#{bindings.Flag.hints.precision}"
+                          shortDesc="#{bindings.Flag.hints.tooltip}" id="it15"
+                          visible="false">
+              <f:validator binding="#{bindings.Flag.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SentToId.inputValue}"
+                          label="#{bindings.SentToId.hints.label}"
+                          required="#{bindings.SentToId.hints.mandatory}"
+                          columns="#{bindings.SentToId.hints.displayWidth}"
+                          maximumLength="#{bindings.SentToId.hints.precision}"
+                          shortDesc="#{bindings.SentToId.hints.tooltip}"
+                          id="it16" visible="false">
+              <f:validator binding="#{bindings.SentToId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SentToId.format}"/>
             </af:inputText>
             <f:facet name="footer">
               <af:group id="g1">
